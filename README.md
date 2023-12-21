@@ -23,99 +23,109 @@ Integration (Optional)
 If desired, you can customize the HTML or CSS further based on your project requirements.
 Integrate the code into your project by copying and pasting the relevant sections.
 ## Code :
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electricity Bill Calculator</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 20px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #4CAF50;
-        }
-
-        form {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 400px;
-            margin: auto;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
-
-        input {
-            width: calc(100% - 16px);
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #result {
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electricity Bill Calculator</title>
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      padding: 20px 0;
+      background-color: #0d0dd2;
+      color: #fff;
+      margin: 0;
+    }
+    form {
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #079020;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button:hover {
+      background-color: #2828e7;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #0f09c1;
+    }
+  </style>
 </head>
 <body>
 
-    <h2>Electricity Bill Calculator</h2>
-
+  <div id="container">
+    <h1>Electricity Bill Calculator</h1>
     <form id="electricityForm">
-        <label for="units">Enter Units Consumed: (in kwph)</label>
-        <input type="number" id="units" name="units" placeholder="Enter units" required>
+      <label for="units">Enter Units Consumed (in kwph):</label>
+      <input type="number" id="units" name="units" required>
 
-        <label for="rate">Rate per Unit: (in rupees)</label>
-        <input type="number" id="rate" name="rate" placeholder="Enter rate" required>
+      <label for="rate">Rate per Unit (in rupees):</label>
+      <input type="number" id="rate" name="rate" step="0.01" required>
 
-        <button type="button" onclick="calculateBill()">Calculate Bill</button>
-
-        <label for="result">Electricity Bill:</label>
-        <input type="text" id="result" name="result" readonly>
+      <button type="button" onclick="calculateBill()">Calculate Bill</button>
     </form>
-
-    <script>
-        function calculateBill() {
-            // Get input values
-            var units = parseFloat(document.getElementById('units').value);
-            var rate = parseFloat(document.getElementById('rate').value);
-
-            // Calculate bill
-            var billAmount = units * rate;
-
-            // Display result
-            document.getElementById('result').value = billAmount.toFixed(2);
-        }
-    </script>
-
+    <div id="result"></div>
+  </div>
+  <script>
+    function calculateBill() {
+      // Get input values
+      var units = parseFloat(document.getElementById("units").value);
+      var rate = parseFloat(document.getElementById("rate").value);
+      // Validate input
+      if (isNaN(units) || isNaN(rate)) {
+        alert("Please enter valid numbers for units and rate.");
+        return;
+      }
+      // Calculate total bill
+      var totalBill = units * rate;
+      // Display result
+      var resultElement = document.getElementById("result");
+      resultElement.textContent = "Total Bill: ₹" + totalBill.toFixed(2);
+    }
+  </script>
 </body>
 </html>
 ```
@@ -155,94 +165,109 @@ Error Handling:
 If an invalid input (e.g., not a non-negative integer) is entered, an error message will be displayed.
 
 # Code :
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factorial Calculator</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 20px;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factorial Calculator</title>
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #1abc9c, #3498db); /* Adjust colors as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        h2 {
-            color: #4CAF50;
-        }
+    #container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
+    h1 {
+      color: #0d0dd2;
+      margin-bottom: 20px;
+    }
 
-        input {
-            width: calc(100% - 16px);
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
+    button {
+      background-color: #079020;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: calc(100% - 16px);
+      box-sizing: border-box;
+    }
 
-        #result {
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-    </style>
+    button:hover {
+      background-color: #2828e7;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0f09c1;
+    }
+  </style>
+  <script>
+    function calculateFactorial() {
+      // Get the input value
+      var number = parseInt(document.getElementById("number").value);
+
+      // Validate input
+      if (isNaN(number) || number < 0) {
+        alert("Please enter a non-negative integer.");
+        return;
+      }
+
+      // Calculate factorial using a loop
+      var factorial = 1;
+      for (var i = 2; i <= number; i++) {
+        factorial *= i;
+      }
+
+      // Display the result
+      var resultElement = document.getElementById("result");
+      resultElement.textContent = "Factorial of " + number + " is: " + factorial;
+    }
+  </script>
 </head>
 <body>
 
-    <h2>Factorial Calculator</h2>
-
-    <label for="number">Enter a Number:</label>
-    <input type="number" id="number" placeholder="Enter a number" required>
-
+  <div id="container">
+    <h1>Factorial Calculator</h1>
+    <label for="number">Enter a non-negative integer:</label>
+    <input type="number" id="number" required>
     <button type="button" onclick="calculateFactorial()">Calculate Factorial</button>
-
-    <label for="result">Factorial:</label>
     <div id="result"></div>
-
-    <script>
-        function calculateFactorial() {
-            // Get input value
-            var number = parseInt(document.getElementById('number').value);
-
-            // Check if the input is a non-negative integer
-            if (Number.isInteger(number) && number >= 0) {
-                var factorial = 1;
-
-                // Calculate factorial
-                for (var i = 2; i <= number; i++) {
-                    factorial *= i;
-                }
-
-                // Display result
-                document.getElementById('result').innerText = `The factorial of ${number} is: ${factorial}`;
-            } else {
-                // Display error for invalid input
-                document.getElementById('result').innerText = 'Please enter a non-negative integer.';
-            }
-        }
-    </script>
+  </div>
 
 </body>
 </html>
@@ -284,117 +309,225 @@ Error Handling:
 If an invalid input (e.g., not a positive integer) is entered, an error message will be displayed.
 
 # Code : 
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Number Generator</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 20px;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Number Generator</title>
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ffcccc, #ff9999); /* Adjust colors as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        h2 {
-            color: #4CAF50;
-        }
+    #container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+    }
 
-        form {
-            background-color: #fff;
-            border: 2px solid #3498db; /* Blue border */
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 400px;
-            margin: auto;
-        }
+    h1 {
+      color: #0d0dd2;
+      margin-bottom: 20px;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
 
-        input {
-            width: calc(100% - 16px);
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+    input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    button {
+      background-color: #079020;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: calc(100% - 16px);
+      box-sizing: border-box;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
+    button:hover {
+      background-color: #2828e7;
+    }
 
-        #result {
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            padding: 8px;
-            margin-top: 16px;
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0f09c1;
+    }
+  </style>
+  <script>
+    function generatePrimes() {
+      var count = parseInt(document.getElementById("count").value);
+
+      if (isNaN(count) || count <= 0) {
+        alert("Please enter a positive integer.");
+        return;
+      }
+
+      var primes = [];
+      var num = 2;
+
+      while (primes.length < count) {
+        if (isPrime(num)) {
+          primes.push(num);
         }
-    </style>
+        num++;
+      }
+
+      var resultElement = document.getElementById("result");
+      resultElement.textContent = "First " + count + " prime numbers: " + primes.join(", ");
+    }
+
+    function isPrime(num) {
+      for (var i = 2; i < num; i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return num > 1;
+    }
+  </script>
 </head>
 <body>
 
-    <h2>Prime Number Generator</h2>
-
-    <form id="primeForm">
-        <label for="count">Enter the number of primes (N):</label>
-        <input type="number" id="count" placeholder="Enter N" required>
-
-        <button type="button" onclick="generatePrimes()">Generate Primes</button>
-
-        <label for="result">Prime Numbers:</label>
-        <div id="result"></div>
-    </form>
-
-    <script>
-        function isPrime(num) {
-            for (var i = 2; i < num; i++) {
-                if (num % i === 0) {
-                    return false;
-                }
-            }
-            return num > 1;
-        }
-
-        function generatePrimes() {
-            var count = parseInt(document.getElementById('count').value);
-            var primeNumbers = [];
-
-            if (count > 0) {
-                var num = 2; // Start with the first prime number
-
-                while (primeNumbers.length < count) {
-                    if (isPrime(num)) {
-                        primeNumbers.push(num);
-                    }
-                    num++;
-                }
-
-                document.getElementById('result').innerText = primeNumbers.join(', ');
-            } else {
-                document.getElementById('result').innerText = 'Please enter a valid count.';
-            }
-        }
-    </script>
+  <div id="container">
+    <h1>Prime Number Generator</h1>
+    <label for="count">Enter the count of prime numbers:</label>
+    <input type="number" id="count" required>
+    <button type="button" onclick="generatePrimes()">Generate Primes</button>
+    <div id="result"></div>
+  </div>
 
 </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Number Generator</title>
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #54d811, #ff9999); /* Adjust colors as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #0d0dd2;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #079020;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: calc(100% - 16px);
+      box-sizing: border-box;
+    }
+
+    button:hover {
+      background-color: #2828e7;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0f09c1;
+    }
+  </style>
+  <script>
+    function generatePrimes() {
+      var count = parseInt(document.getElementById("count").value);
+
+      if (isNaN(count) || count <= 0) {
+        alert("Please enter a positive integer.");
+        return;
+      }
+
+      var primes = [];
+      var num = 2;
+
+      while (primes.length < count) {
+        if (isPrime(num)) {
+          primes.push(num);
+        }
+        num++;
+      }
+
+      var resultElement = document.getElementById("result");
+      resultElement.textContent = "First " + count + " prime numbers: " + primes.join(", ");
+    }
+
+    function isPrime(num) {
+      for (var i = 2; i < num; i++) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return num > 1;
+    }
+  </script>
+</head>
 </html>
 ```
 # Output :
@@ -437,140 +570,126 @@ Error Handling:
 
 If an invalid input (e.g., non-numeric values) or division by zero occurs, an error message will be displayed.
 # Code :
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Calculator</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #282c35; /* Dark background color */
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ef11e1, #4860e6); /* Adjust colors as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        form {
-            background-color: #444;
-            border: 2px solid #3498db;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
+    #container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+    }
 
-        h2 {
-            color: #3498db; /* Blue color for the heading */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+    h1 {
+      color: #0d0dd2;
+      margin-bottom: 20px;
+      padding: 20px 0;
+      background-color: #f2f2f2;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #fff;
-        }
+    input {
+      width: calc(100% - 16px);
+      padding: 10px;
+      margin: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 18px;
+    }
 
-        input, select {
-            width: calc(100% - 16px);
-            padding: 8px;
-            margin-bottom: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #333; /* Dark input background */
-            color: #fff;
-        }
+    button {
+      background-color: #079020;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: calc(50% - 16px);
+      box-sizing: border-box;
+    }
 
-        button {
-            background-color: #3498db; /* Blue color for the button */
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+    button:hover {
+      background-color: #2828e7;
+    }
 
-        button:hover {
-            background-color: #2071a8; /* Darker shade of blue on hover */
-        }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0f09c1;
+      font-size: 20px;
+    }
+  </style>
+  <script>
+    function calculate() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var operator = document.getElementById("operator").value;
 
-        #result {
-            background-color: #333;
-            border: 1px solid #3498db;
-            padding: 8px;
-            margin-top: 16px;
-            font-weight: bold;
-            color: #fff;
-        }
-    </style>
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      var result;
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          if (num2 === 0) {
+            alert("Cannot divide by zero.");
+            return;
+          }
+          result = num1 / num2;
+          break;
+        default:
+          alert("Invalid operator.");
+          return;
+      }
+
+      document.getElementById("result").textContent = "Result: " + result;
+    }
+  </script>
 </head>
 <body>
-
-    <form id="calculatorForm">
-        <h2>Simple Calculator</h2>
-
-        <label for="num1">Enter number 1:</label>
-        <input type="number" id="num1" placeholder="Enter number 1" required>
-
-        <label for="operator">Select operator:</label>
-        <select id="operator" required>
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-        </select>
-
-        <label for="num2">Enter number 2:</label>
-        <input type="number" id="num2" placeholder="Enter number 2" required>
-
-        <button type="button" onclick="calculate()">Calculate</button>
-
-        <div id="result"></div>
-    </form>
-
-    <script>
-        function calculate() {
-            var num1 = parseFloat(document.getElementById('num1').value);
-            var num2 = parseFloat(document.getElementById('num2').value);
-            var operator = document.getElementById('operator').value;
-
-            var result;
-
-            switch (operator) {
-                case '+':
-                    result = num1 + num2;
-                    break;
-                case '-':
-                    result = num1 - num2;
-                    break;
-                case '*':
-                    result = num1 * num2;
-                    break;
-                case '/':
-                    if (num2 !== 0) {
-                        result = num1 / num2;
-                    } else {
-                        document.getElementById('result').innerText = 'Cannot divide by zero.';
-                        return;
-                    }
-                    break;
-                default:
-                    document.getElementById('result').innerText = 'Invalid operator.';
-                    return;
-            }
-
-            document.getElementById('result').innerText = `Result: ${result}`;
-        }
-    </script>
-
+  <div id="container">
+    <h1>Simple Calculator</h1>
+    <input type="number" id="num1" placeholder="Enter number" required>
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="num2" placeholder="Enter number" required>
+    <button type="button" onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+  </div>
 </body>
 </html>
 ```
@@ -611,126 +730,130 @@ View Result:
 
 The result of the text operation will be displayed in a separate div on the page.
 # Code :
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Text Editor</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #3498db, #6c5b7b, #bcb8b1);
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Text Editor</title>
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ffcccc, #ff9999); /* Adjust colors as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        h2 {
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+    #container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 400px;
+      text-align: center;
+    }
 
-        textarea {
-            width: 80%;
-            height: 150px;
-            padding: 12px;
-            margin-bottom: 16px;
-            border: 2px solid #3498db;
-            border-radius: 8px;
-            resize: none;
-            font-size: 16px;
-            color: #333;
-            background-color: #fff;
-        }
+    h1 {
+      color: #0d0dd2;
+      margin-bottom: 20px;
+      padding: 20px 0;
+      background-color: #f2f2f2;
+    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 8px;
-            margin-bottom: 8px; /* Added margin for spacing */
-            font-size: 16px;
-        }
+    textarea {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      height: 150px;
+    }
 
-        #output {
-            background-color: #fff;
-            border: 2px solid #3498db;
-            padding: 12px;
-            text-align: left;
-            border-radius: 8px;
-            width: 80%;
-            font-size: 16px;
-            color: #333;
-        }
-    </style>
+    button {
+      background-color: #079020;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px;
+      box-sizing: border-box;
+    }
+
+    button:hover {
+      background-color: #2828e7;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0f09c1;
+      font-size: 16px;
+    }
+  </style>
+  <script>
+    function capitalizeText() {
+      var input = document.getElementById("textArea");
+      input.value = input.value.toUpperCase();
+    }
+
+    function toLowerCase() {
+      var input = document.getElementById("textArea");
+      input.value = input.value.toLowerCase();
+    }
+
+    function alternateCase() {
+      var input = document.getElementById("textArea");
+      var result = "";
+      for (var i = 0; i < input.value.length; i++) {
+        result += i % 2 === 0 ? input.value[i].toUpperCase() : input.value[i].toLowerCase();
+      }
+      input.value = result;
+    }
+
+    function reverseText() {
+      var input = document.getElementById("textArea");
+      input.value = input.value.split('').reverse().join('');
+    }
+
+    function clearText() {
+      document.getElementById("textArea").value = '';
+    }
+
+    function countCharacters() {
+      var input = document.getElementById("textArea");
+      var count = input.value.length;
+      document.getElementById("result").textContent = "Character Count: " + count;
+    }
+  </script>
 </head>
 <body>
 
-    <h2>Simple Text Editor</h2>
-
-    <textarea id="inputText" placeholder="Type your text here..."></textarea>
-
-    <div>
-        <button onclick="capitalizeText()">Capitalize</button>
-        <button onclick="makeUppercase()">Uppercase</button>
-        <button onclick="makeLowercase()">Lowercase</button>
-        <button onclick="reverseText()">Reverse</button>
-        <button onclick="clearText()">Clear</button>
-    </div>
-
-    <div id="output"></div>
-
-    <script>
-        function capitalizeText() {
-            var inputText = document.getElementById('inputText').value;
-            var outputDiv = document.getElementById('output');
-
-            var capitalizedText = inputText.replace(/\b\w/g, function (char) {
-                return char.toUpperCase();
-            });
-
-            outputDiv.innerText = capitalizedText;
-        }
-
-        function makeUppercase() {
-            var inputText = document.getElementById('inputText').value;
-            var outputDiv = document.getElementById('output');
-
-            outputDiv.innerText = inputText.toUpperCase();
-        }
-
-        function makeLowercase() {
-            var inputText = document.getElementById('inputText').value;
-            var outputDiv = document.getElementById('output');
-
-            outputDiv.innerText = inputText.toLowerCase();
-        }
-
-        function reverseText() {
-            var inputText = document.getElementById('inputText').value;
-            var outputDiv = document.getElementById('output');
-
-            outputDiv.innerText = inputText.split('').reverse().join('');
-        }
-
-        function clearText() {
-            document.getElementById('inputText').value = '';
-            document.getElementById('output').innerText = '';
-        }
-    </script>
+  <div id="container">
+    <h1>Simple Text Editor</h1>
+    <textarea id="textArea" placeholder="Enter text..."></textarea>
+    <br>
+    <button onclick="capitalizeText()">Capitalize</button>
+    <button onclick="toLowerCase()">Lowercase</button>
+    <button onclick="alternateCase()">Alternate Case</button>
+    <button onclick="reverseText()">Reverse</button>
+    <button onclick="clearText()">Clear</button>
+    <br>
+    <button onclick="countCharacters()">Count Characters</button>
+    <div id="result"></div>
+  </div>
 
 </body>
 </html>
+
 ```
 # Output :
 ![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/49b130a8-dc60-4d72-a3a2-b5a6d5673c96)
@@ -771,128 +894,134 @@ Refinement and Deployment:
 Iterate on the code, refining validation, styling, and functionality as needed.
 Deploy the form on a web server or integrate it into your project.
 # Code :
-```html
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Validation</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #3498db, #1abc9c);
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with JavaScript Validation</title>
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #ee0c0c, #2fddf1); /* Adjust colors as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        h2 {
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 30px;
-        }
+    #container {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+    }
 
-        form {
-            width: 80%;
-            max-width: 400px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        }
+    h1 {
+      color: #0d0dd2;
+      margin-bottom: 20px;
+      padding: 20px 0;
+      background-color: #f2f2f2;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-        }
+    form {
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-        input {
-            width: calc(100% - 16px);
-            padding: 12px;
-            margin-bottom: 16px;
-            border: 2px solid #3498db;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-            color: #333;
-        }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
 
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
+    button {
+      background-color: #079020;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-        .error-message {
-            color: red;
-            margin-top: -8px;
-            margin-bottom: 16px;
-            text-align: left;
-        }
-    </style>
+    button:hover {
+      background-color: #2828e7;
+    }
+
+    .error {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+
+      var nameError = document.getElementById("nameError");
+      var emailError = document.getElementById("emailError");
+
+      nameError.textContent = "";
+      emailError.textContent = "";
+
+      var isValid = true;
+
+      if (name.trim() === "") {
+        nameError.textContent = "Name is required";
+        isValid = false;
+      }
+
+      if (email.trim() === "") {
+        emailError.textContent = "Email is required";
+        isValid = false;
+      } else if (!isValidEmail(email)) {
+        emailError.textContent = "Invalid email format";
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function isValidEmail(email) {
+      // Basic email validation, you can enhance it as needed
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+  </script>
 </head>
 <body>
+  <div id="container">
+    <h1>Form with JavaScript Validation</h1>
+    <form onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <div class="error" id="nameError"></div>
 
-    <h2>Form Validation</h2>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <div class="error" id="emailError"></div>
 
-    <form id="myForm" onsubmit="validateForm(); return false;">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        <div id="nameError" class="error-message"></div>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-        <div id="emailError" class="error-message"></div>
-
-        <button type="submit">Submit</button>
+      <button type="submit">Submit</button>
     </form>
-
-    <script>
-        function validateForm() {
-            // Reset error messages
-            document.getElementById('nameError').innerText = '';
-            document.getElementById('emailError').innerText = '';
-
-            // Get form values
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-
-            // Validate name
-            if (name.trim() === '') {
-                document.getElementById('nameError').innerText = 'Name is required.';
-            }
-
-            // Validate email
-            if (email.trim() === '') {
-                document.getElementById('emailError').innerText = 'Email is required.';
-            } else if (!isValidEmail(email)) {
-                document.getElementById('emailError').innerText = 'Invalid email format.';
-            }
-        }
-
-        function isValidEmail(email) {
-            // Basic email validation regex
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-    </script>
-
+  </div>
 </body>
 </html>
 ```
