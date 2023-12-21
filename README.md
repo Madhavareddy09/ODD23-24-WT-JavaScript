@@ -1,6 +1,7 @@
 # ODD23-24-WT-JavaScript
 # AIM : To create the following programs using javascript
 ## Objective 1 :
+# Aim :
 To Create a form with java script code to calculate electricity bill.
 ### Procedure :
 #### Step 1 :
@@ -130,9 +131,11 @@ Integrate the code into your project by copying and pasting the relevant section
 </html>
 ```
 ## Output :
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/7f85f2a9-00c9-4761-a7f4-dea3b01bc0c8)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/fb7bb721-5d46-4460-bde3-fc11dd5305f3)
+
 
 # Objective 2 :
+# Aim :
 To Develop a JavaScript program to compute the factorial of a given number without recursion.
 # Procedure :
 ## Step 1 :
@@ -273,9 +276,11 @@ If an invalid input (e.g., not a non-negative integer) is entered, an error mess
 </html>
 ```
 # Output :
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/f3986977-7b96-4bf4-a1ca-a2c992cbdc27)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/db6c004a-ace9-4cd0-a604-2a0a95540464)
+
 
 # Objective 3 :
+# Aim :
 To Construct a JavaScript code to generate ‘N’ prime numbers.
 
 # Procedure :
@@ -531,13 +536,10 @@ If an invalid input (e.g., not a positive integer) is entered, an error message 
 </html>
 ```
 # Output :
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/275fd43c-db59-40b2-bfb0-5db464c6bb76)
-<br>
-<br>
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/1bcbdc54-c795-4130-a8d7-601d64ab7e67)
-
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/a6d8df12-6148-4eb2-b91b-cb4b1f06095e)
 
 # Objective 4 :
+# Aim :
 To Construct a JavaScript program to implement a simple calculator.
 
 # Procedure :
@@ -694,12 +696,10 @@ If an invalid input (e.g., non-numeric values) or division by zero occurs, an er
 </html>
 ```
 # Output :
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/65f3c487-1500-4f4d-8df4-27181db307db)
-<br>
-<br>
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/bb8be043-d181-4262-9497-21e742873315)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/3c7351c9-47fd-4e8d-b738-aa80d9d27452)
 
 # Objective 5 :
+# Aim :
 To Design a simple text editor JavaScript application where we can manipulate the user input in different styles, edit the input, capitalize, and many string operations.
 
 # Procedure :
@@ -856,20 +856,25 @@ The result of the text operation will be displayed in a separate div on the page
 
 ```
 # Output :
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/49b130a8-dc60-4d72-a3a2-b5a6d5673c96)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/abcd114f-5968-467d-bdea-8c36654da044)
 <br>
 <br>
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/8658f197-7f2d-4ee2-a72b-bcdd0cd35250)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/2d408fd4-b9a8-436f-ad86-6beef7849cbe)
 <br>
 <br>
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/38e4bb2e-8ede-4ec6-ae3d-93cd4cb24d98)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/4a4cbfe7-c0d2-49ca-a658-616ef78d1161)
 <br>
 <br>
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/99c21685-2231-4f74-85c9-8c9eb8036563)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/c45c5d8d-4948-490c-bd3b-803f4e7118d0)
 <br>
 <br>
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/ff1bc5b2-4cf3-4cf4-aed4-0cdbd7f27494)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/1980699a-ecee-4f8a-beb0-6a74c2d64e94)
+<br>
+<br>
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/d0e2a52d-0a3a-4a42-a1b5-2b8d57950825)
+
 # Objective 6 :
+# Aim :
 To Design a JavaScript program which displays error messages when a field in form is entered incorrectly.
 # Procedure :
 ## Step 1 :
@@ -1026,7 +1031,8 @@ Deploy the form on a web server or integrate it into your project.
 </html>
 ```
 # Output :
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/4266f4c4-dfa9-4f62-90e7-8e0cd89cd26e)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/6066d002-8b53-42f8-8326-13a82d57176a)
 <br>
 <br>
-![image](https://github.com/SANTHAN-2006/ODD23-24-WT-JavaScript/assets/80164014/ae0b8c9f-37ed-47b8-8790-b7cc38d98903)
+![image](https://github.com/Madhavareddy09/ODD23-24-WT-JavaScript/assets/145742470/99e65662-8cbf-49fd-99eb-f49ab45a31e3)
+
